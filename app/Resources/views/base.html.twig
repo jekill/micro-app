@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Micro APP @ Evgeny Fomin - info@jeka.ru{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/icon-32.png') }}?2"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/compiled/styles.css') }}" media="all"/>
+</head>
+<body class="{{ block('body_class') }}">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('homepage') }}"><img src="/assets/images/icon.png"  height="24" width="24" alt="Micro APP"></a>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Gallery</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

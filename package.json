@@ -1,0 +1,30 @@
+{
+  "name": "micro-app",
+  "version": "1.0.0",
+  "description": "test app",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evgeny Fomin",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "font-awesome": "^4.6.3"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^1.4.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  }
+}

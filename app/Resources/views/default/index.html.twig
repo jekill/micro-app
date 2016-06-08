@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body_class %}main{% endblock %}
+{% block body %}
+
+    <div class="greeting">
+        <div class="text">
+            <h1>Hello Guest!</h1>
+            <p>Send please your photo</p>
+        </div>
+
+
+        <div class="col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2  col-md-4 col-md-offset-4">
+            <form class="form" action="{{ path('homepage') }}" method="post" enctype="multipart/form-data">
+                {{ form_errors(form) }}
+                {{ form_errors(form.guest) }}
+                {{ form_widget(form.guest) }}
+                <div style="display: block">
+                    {{ form_widget(form.uploadedFile) }}
+                </div>
+
+
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Upload</button>
+                </div>
+                {{ form_widget(form._token) }}
+
+            </form>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
+{% endblock %}
+
