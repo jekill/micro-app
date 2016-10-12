@@ -31,7 +31,8 @@
         "vich/uploader-bundle": "^1.1",
         "stof/doctrine-extensions-bundle": "^1.2",
         "friendsofsymfony/rest-bundle": "^1.7",
-        "jms/serializer-bundle": "^1.1"
+        "jms/serializer-bundle": "^1.1",
+        "fresh/vich-uploader-serialization-bundle": "^1.0"
     },
     "require-dev": {
         "deployer/deployer": "^3.2",

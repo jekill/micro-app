@@ -8,3 +8,8 @@ services:
         class: AppBundle\Repository\GuestRepository
         factory: ["@doctrine.orm.entity_manager", "getRepository"]
         arguments: [ AppBundle\Entity\Guest ]
+
+    app.repository.image:
+        class: AppBundle\Repository\ImageRepository
+        factory: ["@doctrine.orm.entity_manager", "getRepository"]
+        arguments: [ AppBundle\Entity\Image ]

@@ -6,8 +6,13 @@ const appSrcDirectory = __dirname + "/frontend-src";
 
 module.exports = {
     context: appSrcDirectory,
+
+    // devtool: 'source-map',
+    // debug: true,
+
     entry: {
-        'styles': './assets/css/main.less'
+        'styles': './assets/css/main.less',
+        'app': './bootstrap.ts'
     },
     output: {
         path: __dirname + '/web/assets/compiled',
@@ -15,15 +20,17 @@ module.exports = {
     },
     module: {
         loaders: [
-            {
-                test: /\.less$/,  loader: ExtractTextPlugin.extract("style","css!less-loader")
-            },
-            {
-                test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
-                loader: 'url-loader'
-            }
-
+            {test: /\.ts$/, loaders: ['ts-loader'], exclude: /node_modules/},
+            {test: /\.html$/, loaders: ['raw-loader']},
+            {test: /\.less$/, loader: ExtractTextPlugin.extract("style", "css!less-loader"), exclude: /frontend-src\/app/},
+            {test: /frontend-src\/app\/.+\.less$/,  loader: "raw-loader!less-loader"},
+            {test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/, loader: 'url-loader'}
         ]
+    },
+
+    resolve: {
+        root: appSrcDirectory,
+        extensions: ["", ".webpack.js", ".web.js", ".js", '.ts']
     },
 
     plugins: [

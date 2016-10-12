@@ -1,0 +1,15 @@
+<div style="display: none;">
+    <input #fileInput
+           type="file"
+           [name]="name"
+           (change)="fileChanged(fileInput)"
+           accept="image/jpeg,image/png,image/gif"
+    />
+</div>
+<button type="button"
+        class="btn btn-success btn-block btn-lg"
+        [disabled]="disabled"
+        (click)="fileInput.click()">
+
+    <ng-content></ng-content>
+</button>

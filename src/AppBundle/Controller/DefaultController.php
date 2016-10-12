@@ -25,6 +25,9 @@ class DefaultController extends Controller
         $imageForm->handleRequest($request);
         if ($imageForm->isSubmitted() && $imageForm->isValid()) {
             $this->processImageForm($imageForm);
+            $this->get('session')->getFlashBag()->add('message', 'The phone is uploaded #id:');
+
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render(
@@ -33,6 +36,15 @@ class DefaultController extends Controller
                 'form' => $imageForm->createView(),
             ]
         );
+    }
+
+    /**
+     * @param Request $request
+     * @Route("/gallery",name="gallery")
+     */
+    public function galleryAction(Request $request)
+    {
+        return $this->render('default/gallery.html.twig');
     }
 
 
@@ -49,7 +61,7 @@ class DefaultController extends Controller
 
         if (($existed = $guestRepository->findByEmail($guest->getEmail())) !== null) {
             $guest = $existed;
-        }else{
+        } else {
             $em->persist($guest);
         }
 
@@ -57,6 +69,5 @@ class DefaultController extends Controller
         $em->persist($image);
 
         $em->flush();
-
     }
 }

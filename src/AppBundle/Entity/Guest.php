@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Guest
@@ -23,6 +24,8 @@ class Guest
 
     /**
      * @var string
+     *
+     * @Assert\Email(checkMX=false, checkHost=false)
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */

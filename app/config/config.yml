@@ -82,3 +82,12 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+
+fos_rest:
+    view:
+        templating_formats:
+            html: false
+    routing_loader:
+        default_format: json
+        include_format: false

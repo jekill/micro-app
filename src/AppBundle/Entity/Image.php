@@ -5,7 +5,11 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Fresh\VichUploaderSerializationBundle\Annotation as Fresh;
 use Symfony\Component\HttpFoundation\File\File;
+
+use JMS\Serializer\Annotation as JMS;
+
 
 /**
  * Image
@@ -13,6 +17,7 @@ use Symfony\Component\HttpFoundation\File\File;
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
  * @Vich\Uploadable()
+ * @Fresh\VichSerializableClass()
  */
 class Image
 {
@@ -36,6 +41,8 @@ class Image
     /**
      * @var string
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @JMS\SerializedName("source")
+     * @Fresh\VichSerializableField(field="uploadedFile",includeHost=true)
      */
     private $fileName;
 
