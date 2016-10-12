@@ -33,11 +33,13 @@ All uploaded photos are shown as thumbnails in a gallery.
 
 ## Installation
 
-```sh
-git clone !!!{}!!!
+```bash
+git clone git@github.com:jekill/micro-app.git
 cd micro-app
 composer install
 npm install
 typings install
 webpack
+php bin/console server:run 
+open http://localhost:8000  
 ```
