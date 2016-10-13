@@ -5,16 +5,13 @@ import {AppModule} from "./app/app.module";
 import {bootloader} from "@angularclass/hmr";
 
 
-declare var window:{__store?:any;};
-
-
 function startApplication(){
     const platform = platformBrowserDynamic();
     platform.bootstrapModule(AppModule);
 }
 
 
-let isDev = true;
+const isDev = !__IS_PROD_MODE__;
 
 if (!isDev) {
     enableProdMode();

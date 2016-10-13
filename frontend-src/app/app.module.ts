@@ -1,5 +1,6 @@
-import {NgModule} from "@angular/core";
+import {NgModule, Inject} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
 import {NgRedux, NgReduxModule} from "ng2-redux";
 
 import {App} from "./app";
@@ -11,7 +12,8 @@ import {PreviewFileInput} from "./components/preview-file-input/preview-file-inp
 @NgModule({
     imports: [
         BrowserModule,
-        NgReduxModule
+        NgReduxModule,
+        FormsModule
     ],
     declarations: [App, UploadForm, PreviewFileInput],
     bootstrap: [App],
@@ -20,7 +22,7 @@ import {PreviewFileInput} from "./components/preview-file-input/preview-file-inp
 })
 
 export class AppModule {
-    constructor(store: NgRedux<AppState>) {
+    constructor(@Inject(NgRedux) store: NgRedux<AppState>) {
         store.provideStore(AppStore);
     }
 }

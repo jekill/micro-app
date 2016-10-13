@@ -26,6 +26,7 @@
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}
+<script src="{{ asset('assets/compiled/polyfills.js') }}"></script>
 <script src="{{ asset('assets/compiled/app.js') }}"></script>
 {% endblock %}
 

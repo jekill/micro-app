@@ -1,42 +1,41 @@
 import {Component, Inject, ChangeDetectionStrategy, OnDestroy, EventEmitter, Output} from "@angular/core";
-import {Store} from "redux/index";
 import {AppState} from "../../redux/state";
 import {PreviewFileInput} from "../preview-file-input/preview-file-input";
 import {Observable, Subject, BehaviorSubject} from "rxjs/Rx";
 import {createActionChangePreviewImage, ChangePreviewImageAction} from "./upload-form.redux";
+import {NgRedux, select} from "ng2-redux";
+import {Guest} from "../../models/Guest";
 
 @Component({
     selector: 'UploadForm',
     styles: [require('./upload-form.less')],
     template: require('./upload-form.html'),
 })
-export class UploadForm implements OnDestroy {
+export class UploadForm {
 
-    private unscribe:Function;
+    email: string = "";
+    emailIsValid: boolean = false;
 
-    email:string = "";
-    emailIsValid:boolean = false;
-    // previewImage:BehaviorSubject<string> = new BehaviorSubject<string>('');
-    previewImage:BehaviorSubject<string> = new BehaviorSubject<string>('');
-    previewImageResolve:Function;
+    @select(['form','previewImage'])
+    previewImage;
 
-    constructor(@Inject('AppStore') private store:Store<AppState>) {
-        Object.assign(this, store.getState().form);
-        this.unscribe = store.subscribe(()=> {
-            const formState = store.getState().form;
-            Object.assign(this, formState);
-        });
+    guest: Guest = new Guest();
+
+
+    constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {
+
     }
 
-    ngOnDestroy():any {
-        this.unscribe();
+    ngOnInit() {
+
     }
 
     onSubmit() {
         alert("qwe");
     }
 
-    handleImagePreview(loadingImageDataUrl:string) {
+    handleImagePreview(loadingImageDataUrl: string) {
+        // this.store.dispatch(<any>createActionChangePreviewImage(loadingImageDataUrl));
         this.store.dispatch(<any>createActionChangePreviewImage(loadingImageDataUrl));
         return true;
     }

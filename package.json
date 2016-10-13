@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typings": "typings"
   },
   "author": "Evgeny Fomin",
   "license": "UNLICENSED",
@@ -28,12 +29,10 @@
 
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.6.3",
-    "redux": "^3.4.0",
-    "ng2-redux": "^4.0.0-beta.0"
+    "redux": "^3.5.0",
+    "ng2-redux": "^4.0.0-beta.3"
   },
   "devDependencies": {
-    "@angularclass/hmr": "^1.0.1",
-    "@angularclass/hmr-loader": "^3.0.2",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",

@@ -12,7 +12,8 @@ module.exports = {
 
     entry: {
         'styles': './assets/css/main.less',
-        'app': './bootstrap.ts'
+        'app': './bootstrap.ts',
+        'polyfills':  './polyfills.ts'
     },
     output: {
         path: __dirname + '/web/assets/compiled',
@@ -34,6 +35,9 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("[name].css"),
+        new webpack.DefinePlugin({
+            __IS_PROD_MODE__: false
+        })
     ]
 };
