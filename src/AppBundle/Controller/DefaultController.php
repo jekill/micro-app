@@ -48,6 +48,28 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/about", name="about")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function aboutAction()
+    {
+
+        $readmeContent = '';
+
+        $readmeFile = $this->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR.'..'. DIRECTORY_SEPARATOR . 'README.md';
+        if (file_exists($readmeFile)) {
+            $readmeContent = file_get_contents($readmeFile);
+        }
+
+        return $this->render(
+            ':default:about.html.twig',
+            [
+                'readme_content' => $readmeContent
+            ]
+        );
+    }
+
     private function processImageForm(Form $imageForm)
     {
         /** @var Image $image */

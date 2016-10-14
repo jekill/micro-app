@@ -1,5 +1,5 @@
 <div class="row">
-    <form enctype="multipart/form-data" (ngSubmit)="onSubmit()" #uploadForm>
+    <form enctype="multipart/form-data" (ngSubmit)="onSubmit()" #uploadForm="ngForm">
         <div class="col-xs-12">
             <h3>Step 1. Write your e-mail</h3>
             <div class="form-group has-feedback">
@@ -12,7 +12,6 @@
                        ngControl="emailInput"
                        [(ngModel)]="guest.email"
                        #emailInput="ngModel"
-
                 >
                 <span class="email-valid-check form-control-feedback"
                       style="font-size: 20px; color: #2ca02c"
@@ -40,7 +39,6 @@
                 Select {{!(previewImage|async)?'your photo':'other photo'}}
             </PreviewFileInput>
 
-
             <div class="form-group" style="display: none">
                 <label for="image_uploadedFile_file" class="control-label required">Upload</label>
                 <input id="image_uploadedFile_file" name="image[uploadedFile][file]" required="required" type="file" #uploadFileInput>
@@ -51,6 +49,17 @@
             <div class="img-thumbnail">
                 <img [src]="previewImage|async" class="img-responsive"/>
             </div>
+        </div>
+
+        <div class="col-xs-12" >
+            <h3>Step 3. Upload the photo</h3>
+        </div>
+        <div class="col-xs-12" *ngIf="(previewImage|async)">
+            <p>Yes, all right. I want to upload the photo</p>
+            <button class="btn btn-warning btn-block btn-lg">
+                <i class="fa fa-upload"></i>
+                Upload
+            </button>
         </div>
 
     </form>

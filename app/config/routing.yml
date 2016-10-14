@@ -1,9 +1,12 @@
 app:
     resource: "@AppBundle/Controller/DefaultController.php"
     type:     annotation
-
+    options:
+        expose: true
 api:
     type: annotation
     resource: "@AppBundle/Controller/API10Controller.php"
     prefix: /api_1_0
 
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

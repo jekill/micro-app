@@ -32,7 +32,9 @@
         "stof/doctrine-extensions-bundle": "^1.2",
         "friendsofsymfony/rest-bundle": "^1.7",
         "jms/serializer-bundle": "^1.1",
-        "fresh/vich-uploader-serialization-bundle": "^1.0"
+        "fresh/vich-uploader-serialization-bundle": "^1.0",
+        "knplabs/knp-markdown-bundle": "^1.5",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "deployer/deployer": "^3.2",

@@ -8,6 +8,7 @@ import {AppStore} from "./redux/store";
 import {AppState} from "./redux/state";
 import {UploadForm} from "./components/upload-form/upload-form";
 import {PreviewFileInput} from "./components/preview-file-input/preview-file-input";
+import {LastUploadsComponent} from "./components/last-uploads/last-uploads.compotent";
 
 @NgModule({
     imports: [
@@ -15,10 +16,14 @@ import {PreviewFileInput} from "./components/preview-file-input/preview-file-inp
         NgReduxModule,
         FormsModule
     ],
-    declarations: [App, UploadForm, PreviewFileInput],
+    declarations: [
+        App,
+        UploadForm,
+        PreviewFileInput,
+        LastUploadsComponent
+    ],
     bootstrap: [App],
-    providers: [
-    ]
+    providers: []
 })
 
 export class AppModule {
