@@ -5,7 +5,7 @@
     <title>{% block title %}Micro APP @ Evgeny Fomin - info@jeka.ru{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/icon-32.png') }}?2"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/compiled/styles.css') }}" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/compiled/styles.css','webpack') }}" media="all"/>
 </head>
 <body class="{{ block('body_class') }}">
 
@@ -29,8 +29,8 @@
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}
-<script src="{{ asset('assets/compiled/polyfills.js') }}"></script>
-<script src="{{ asset('assets/compiled/app.js') }}"></script>
+<script src="{{ asset('assets/compiled/polyfills.js','webpack') }}"></script>
+<script src="{{ asset('assets/compiled/app.js','webpack') }}"></script>
 {% endblock %}
 
 <footer>

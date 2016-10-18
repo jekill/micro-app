@@ -5,6 +5,7 @@ import {AppModule} from "./app/app.module";
 import {bootloader} from "@angularclass/hmr";
 
 
+
 function startApplication(){
     const platform = platformBrowserDynamic();
     platform.bootstrapModule(AppModule);

@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typings": "typings"
+    "typings": "typings",
+    "server": "webpack-dev-server -d --hot --inline --progress --watch --content-base frontend-src/"
   },
   "author": "Evgeny Fomin",
   "license": "UNLICENSED",
@@ -21,31 +22,34 @@
     "@angular/platform-browser": "~2.0.2",
     "@angular/platform-browser-dynamic": "~2.0.2",
     "@angular/router": "~3.0.2",
-
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25",
-
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.6.3",
     "redux": "^3.5.0",
     "ng2-redux": "^4.0.0-beta.3"
   },
   "devDependencies": {
+    "@angularclass/hmr": "^1.2.1",
+    "@angularclass/hmr-loader": "^3.0.2",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "install": "^0.8.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "npm": "^3.10.8",
     "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.4.3",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
     "typescript": "^2.0.3",
-    "typings":"^1.4.0",
+    "typings": "^1.4.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-notifier": "^1.4.1"
   }
 }
